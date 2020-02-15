@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	</head>
+
+	<body>
+		<h1 align="center">View Meal</h1>
+		<h3 align="center">My Food Tracker</h3>
+		<form role="form" action="" method="POST">
+		    {% csrf_token %}
+		    <h3 style="color:blue;">{{ meal }}</h3>
+			<table class="table table-bordered table-striped">
+				<tbody>
+					<tr>
+						<th>Calories</th>
+						<th style="color:red;">{{ meal.get_total_calories}} kcal </th>
+					</tr>
+					<tr>
+						<th>Serving Size</th>
+						<th style="color:red;">{{ meal.serving_size }}</th>
+					</tr>
+					<tr>
+						<th>Total Fat</th>
+						<th style="color:red;">{{ meal.get_total_fat }} g </th>
+					</tr>
+					<tr>
+						<th>Saturated Fat</th>
+						<th style="color:red;">{{ meal.get_total_saturated_fat }} g </th>
+					</tr>	
+					<tr>
+						<th>Cholesterol</th>
+						<th style="color:red;">{{ meal.get_total_cholesterol }} mg </th>
+					</tr>
+					<tr>
+						<th>Sodium</th>
+						<th style="color:red;">{{ meal.get_total_sodium }} mg </th>
+					</tr>
+					<tr>
+						<th>Total Carbohydrate</th>
+						<th style="color:red;">{{ meal.get_total_carbohydrate }} g </th>
+					</tr>
+					<tr>
+						<th>Dietary Fibre</th>
+						<th style="color:red;">{{ meal.get_total_dietary_fibre }} g </th>
+					</tr>
+					<tr>
+						<th>Sugar</th>
+						<th style="color:red;">{{ meal.get_total_sugar }} g </th>
+					</tr>
+					<tr>
+						<th>Protein</th>
+						<th style="color:red;">{{ meal.get_total_protein }} g </th>
+					</tr>			
+				</tbody>
+			</table>
+		<a href="{% url 'food:index' %}" class="btn btn-info">BACK</a>
+	</body>
+
+</html>
